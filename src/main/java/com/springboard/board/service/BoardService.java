@@ -1,4 +1,4 @@
 package com.springboard.board.service;
 
-public class BoardService {
+public interface BoardService {
 }
