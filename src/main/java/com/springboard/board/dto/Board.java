@@ -9,7 +9,7 @@ import java.util.Date;
 @Setter
 public class Board {
     private Long id;
-    private Long userId;
+    private Long user_id;
     private String title;
     private String nickname;
     private String content;

@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-    <title>boardlist</title>
+    <title>loginform</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/board.css">
@@ -13,28 +13,19 @@
 <%@include file="header.jsp"%>
 
 <div class="container">
-    <h2>modify</h2>
-
-    <form action="/modify" method = "post">
-        <%--hidden! id를 숨기는 것--%>
-        <input type="hidden" class="form-control" id="id" name="id" value="${board.id}">
-
+    <h2>loginform</h2>
+    <form action="/login" method="post">
         <div class="form-group">
-            <label for="comment">Title:</label>
-            <input type="comment" class="form-control" id="title" name="title" value="${board.title}">
+            <input type="comment" class="form-control" id="email" placeholder="Enter email" name="email">
         </div>
         <div class="form-group">
-            <label for="comment">Comment:</label>
-            <textarea class="form-control" rows="5" id="comment" name="content">${board.content}</textarea>
+            <input type="password" class="form-control" id="passwd1" placeholder="Enter passwd" name="passwd">
         </div>
-        <div class="form-group">
-            <label for="comment">nickname:</label>
-            <label>${sessionScope.user.nickname}</label>
-        </div>
-
-
-        <button type="submit" class="btn btn-success">modify</button>
+        <button type="submit">login</button>
     </form>
 </div>
+
+
+
 </body>
 </html>

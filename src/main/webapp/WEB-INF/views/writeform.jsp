@@ -13,28 +13,26 @@
 <%@include file="header.jsp"%>
 
 <div class="container">
-    <h2>modify</h2>
-
-    <form action="/modify" method = "post">
-        <%--hidden! id를 숨기는 것--%>
-        <input type="hidden" class="form-control" id="id" name="id" value="${board.id}">
-
+    <h2>write</h2>
+    <form action="/write" method="post">
         <div class="form-group">
             <label for="comment">Title:</label>
-            <input type="comment" class="form-control" id="title" name="title" value="${board.title}">
+            <input type="comment" class="form-control" id="title" placeholder="Enter title" name="title">
         </div>
         <div class="form-group">
             <label for="comment">Comment:</label>
-            <textarea class="form-control" rows="5" id="comment" name="content">${board.content}</textarea>
+            <textarea class="form-control" rows="7" id="comment" name="content"></textarea>
         </div>
         <div class="form-group">
             <label for="comment">nickname:</label>
             <label>${sessionScope.user.nickname}</label>
         </div>
 
-
-        <button type="submit" class="btn btn-success">modify</button>
+        <button type="submit" class="btn btn-success">Submit</button>
     </form>
 </div>
+
+
+
 </body>
 </html>

@@ -15,12 +15,8 @@
 
 <div class="container">
     <div class="table-responsive">
-        <c:if test="${sessionScope.user != null}">
-            <a href="/write"><button type="button" class="btn btn-success writebtn" >write</button></a>
-        </c:if>
-        <c:if test="${sessionScope.user == null}">
-            <button type="button" class="btn btn-success writebtn" id ="writebtn" data-toggle="modal" data-target="#login">write</button>
-        </c:if>
+
+            <a href="/writeform"><button type="button" class="btn btn-success writebtn" >write</button></a>
 
         <table class="table table-hover">
             <thead>
@@ -33,7 +29,7 @@
             </tr>
             </thead>
             <tbody>
-                <c:forEach items="${requestScope.boards}" var="board">
+                <c:forEach items="${boards}" var="board">
                     <tr>
                         <td>${board.id}</td>
                         <td>

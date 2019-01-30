@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-    <title>boardlist</title>
+    <title>joinform</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/board.css">
@@ -13,23 +13,24 @@
 <%@include file="header.jsp"%>
 
 <div class="container">
-    <h2>write</h2>
-    <form action="/write" method="post">
+    <h2>joinform</h2>
+    <form action="/join" method="post">
         <div class="form-group">
-            <label for="comment">Title:</label>
-            <input type="comment" class="form-control" id="title" placeholder="Enter title" name="title">
+            <input type="comment" class="form-control" id="name" placeholder="Enter name" name="name">
         </div>
         <div class="form-group">
-            <label for="comment">Comment:</label>
-            <textarea class="form-control" rows="7" id="comment" name="content"></textarea>
+            <input type="comment" class="form-control" id="nickname" placeholder="Enter nickname" name="nickname">
         </div>
         <div class="form-group">
-            <label for="comment">nickname:</label>
-            <input type="comment" class="form-control" id="userId" placeholder="Enter writer" name="nickname">
+            <input type="comment" class="form-control" id="email" placeholder="Enter email" name="email">
         </div>
-        <input type="hidden" name="userId" value="${sessionScope.user.id}">
-
-        <button type="submit" class="btn btn-success">Submit</button>
+        <div class="form-group">
+            <input type="password" class="form-control" id="passwd" placeholder="Enter passwd" name="passwd">
+        </div>
+        <%--<div class="form-group">--%>
+            <%--<input type="password" class="form-control" id="passwd2" placeholder="Enter passwd2" name="passwd2">--%>
+        <%--</div>--%>
+        <button type="submit">join</button>
     </form>
 </div>
 

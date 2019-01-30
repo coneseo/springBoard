@@ -38,6 +38,7 @@ public class DataSourceConfig implements TransactionManagementConfigurer {
     public DataSource dataSource(){
         return new HikariDataSource(hikariConfig());
     }
+
     @Bean
     @Override
     public PlatformTransactionManager annotationDrivenTransactionManager() {

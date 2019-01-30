@@ -6,11 +6,14 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 import javax.servlet.Filter;
 
 public class MainWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+    //비즈니스 로직 관련 스프링 설정
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return new Class[]{ApplicationConfig.class};
     }
 
+
+    //웹과 관련된 설정
     @Override
     protected Class<?>[] getServletConfigClasses() {
         return new Class[]{WebConfig.class};
@@ -21,6 +24,7 @@ public class MainWebAppInitializer extends AbstractAnnotationConfigDispatcherSer
         return new String[]{"/"};
     }
 
+    //사용자가 필터를 설정
     @Override
     protected Filter[] getServletFilters() {
         CharacterEncodingFilter encodingFilter = new CharacterEncodingFilter();
