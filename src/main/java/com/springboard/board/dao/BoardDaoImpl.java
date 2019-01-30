@@ -53,23 +53,26 @@ public class BoardDaoImpl implements BoardDao {
     }
 
     @Override
-    public long addBoard(Board board) {
+    public Long addBoard(Board board) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("title",board.getTitle());
-        paramMap.put("userId",board.getUser_id());
+        paramMap.put("user_id",board.getUser_id());
         paramMap.put("content", board.getContent());
         paramMap.put("nickname", board.getNickname());
+        paramMap.put("regdate", board.getRegdate());
+        paramMap.put("read_count", board.getRead_count());
+        paramMap.put("group_no", board.getGroup_no());
+        paramMap.put("group_seq", board.getGroup_seq());
+        paramMap.put("group_depth", board.getGroup_depth());
 
-                jdbc.queryForObject(INSERT, paramMap, rowMapper);
-
-        //Number number = simpleJdbcInsert.executeAndReturnKey(paramMap);
-        return 0L;
-
-
+        Number number = simpleJdbcInsert.executeAndReturnKey(paramMap);
+        return number.longValue();
     }
 
     @Override
     public void deleteBoard(Long id) {
+
+
 
     }
 
@@ -80,7 +83,12 @@ public class BoardDaoImpl implements BoardDao {
 
     @Override
     public void updateReadCount(Long id) {
-
+        try {
+            Map<String, Object> paramMap = new HashMap<>();
+            paramMap.put("id", id);
+            jdbc.query(UPDATE,paramMap,rowMapper);
+        }catch(EmptyResultDataAccessException ex){
+        }
     }
 
     @Override

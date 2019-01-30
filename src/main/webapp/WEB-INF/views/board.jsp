@@ -33,11 +33,11 @@
                     <tr>
                         <td>${board.id}</td>
                         <td>
-                            <c:forEach begin="1" end="${board.depth}">&nbsp;</c:forEach>
+                            <c:forEach begin="1" end="${board.group_depth}">&nbsp;</c:forEach>
                             <a href="/content?id=${board.id}">${board.title}</a></td>
                         <td>${board.nickname}</td>
                         <td>${board.regdate}</td>
-                        <td>${board.readcount}</td>
+                        <td>${board.read_count}</td>
                     </tr>
                 </c:forEach>
             </tbody>

@@ -7,7 +7,7 @@ import java.util.List;
 public interface BoardDao {
      Board getBoard(Long id);
      List<Board> getBoards(int start, int limit);
-     long addBoard(Board board);
+     Long addBoard(Board board);
      void deleteBoard(Long id);
      void updateBoard(Board board);
      void updateReadCount(Long id);

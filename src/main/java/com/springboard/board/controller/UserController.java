@@ -29,8 +29,7 @@ public class UserController {
 //    public String join(@RequestParam(name = "name") String name,
 //                       @RequestParam(name = "nickname") String nickname,
 //                       @RequestParam(name = "email") String email,
-//                       @RequestParam(name = "passwd1") String passwd1,
-//                       @RequestParam(name = "passwd2") String passwd2,
+//                       @RequestParam(name = "passwd) String passwd,
 //                       @RequestHeader(name = "Accept") String accept,
 //                       HttpSession session){
     public String join(@ModelAttribute User user,
@@ -46,7 +45,10 @@ public class UserController {
 
         return "redirect:/welcome";
     }
-
+    @GetMapping("/welcome")
+    public String welcome(){
+        return "welcome";
+    }
     @GetMapping("/loginform")
     public String loginform() {
         return "loginform";
@@ -67,11 +69,18 @@ public class UserController {
                 // 로그인정보를 세션에 저장.
                 session.setAttribute("user", user);
                 System.out.println("암호가 맞아요.");
+                return "redirect:/main";
             } else {
                 // 암호가 틀렸어요.
                 System.out.println("암호가 틀렸어요.");
             }
         }
+        return "redirect:/main";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        session.removeAttribute("user");
         return "redirect:/main";
     }
 }

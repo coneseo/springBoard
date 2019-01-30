@@ -34,6 +34,7 @@ public class UserDaoImpl implements UserDao {
         paramMap.put("nickname", user.getNickname());
         paramMap.put("email", user.getEmail());
         paramMap.put("passwd", user.getPasswd());
+        paramMap.put("regdate", user.getRegdate());
         Number number = simpleJdbcInsert.executeAndReturnKey(paramMap);
         return number.longValue();
     }

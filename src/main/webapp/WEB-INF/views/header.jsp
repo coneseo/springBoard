@@ -79,11 +79,11 @@
                             <input type="comment" class="form-control" id="email" placeholder="Enter email" name="email">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="passwd1" placeholder="Enter passwd1" name="passwd1">
+                            <input type="password" class="form-control" id="passwd" placeholder="Enter passwd" name="passwd">
                         </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" id="passwd2" placeholder="Enter passwd2" name="passwd2">
-                        </div>
+                        <%--<div class="form-group">--%>
+                            <%--<input type="password" class="form-control" id="passwd2" placeholder="Enter passwd2" name="passwd2">--%>
+                        <%--</div>--%>
                         <button type="submit">join</button>
                     </form>
                 </div>
