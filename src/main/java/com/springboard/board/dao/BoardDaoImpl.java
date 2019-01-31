@@ -72,12 +72,15 @@ public class BoardDaoImpl implements BoardDao {
     @Override
     public void deleteBoard(Long id) {
 
-
-
     }
 
     @Override
     public void updateBoard(Board board) {
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("title", board.getTitle());
+        paramMap.put("content", board.getContent());
+        paramMap.put("id", board.getId());
+        jdbc.update(UPDATE,paramMap);
 
     }
 
@@ -86,7 +89,7 @@ public class BoardDaoImpl implements BoardDao {
         try {
             Map<String, Object> paramMap = new HashMap<>();
             paramMap.put("id", id);
-            jdbc.query(UPDATE,paramMap,rowMapper);
+            jdbc.update(UPDATE_READCOUNT,paramMap);
         }catch(EmptyResultDataAccessException ex){
         }
     }

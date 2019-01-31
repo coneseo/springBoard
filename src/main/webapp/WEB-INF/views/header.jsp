@@ -79,7 +79,7 @@
                             <input type="comment" class="form-control" id="email" placeholder="Enter email" name="email">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="passwd" placeholder="Enter passwd" name="passwd">
+                            <input type="password" class="form-control" id="passwd1" placeholder="Enter passwd" name="passwd">
                         </div>
                         <%--<div class="form-group">--%>
                             <%--<input type="password" class="form-control" id="passwd2" placeholder="Enter passwd2" name="passwd2">--%>

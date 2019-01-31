@@ -25,8 +25,8 @@
         <div class="panel-body">${board.content}</div>
     </div>
 
-    <a href="/modify?id=${board.id}"><button type="button" class="btn btn-success">Modify</button></a>
-    <a href="/rewrite?id=${board.id}"><button type="button" class="btn btn-success">rewrite</button></a>
+    <a href="/modifyform?id=${board.id}"><button type="button" class="btn btn-success">Modify</button></a>
+    <a href="/rewriteform?id=${board.id}"><button type="button" class="btn btn-success">rewrite</button></a>
     <a href="/delete?id=${board.id}"><button type="button" class="btn btn-success">delete</button></a>
     <a href="/board"><button type="button" class="btn btn-success">lists</button></a>
 

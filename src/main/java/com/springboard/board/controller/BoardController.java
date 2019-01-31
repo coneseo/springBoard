@@ -51,4 +51,44 @@ public class BoardController {
         model.addAttribute("board", board);
         return "content";
     }
+
+    @GetMapping("/modifyform")
+    public String modifyform(
+            @RequestParam(name = "id") long id,
+            Model model
+    ){
+        Board board = boardService.getBoard(id);
+        model.addAttribute("board", board);
+        return "modifyform";
+    }
+
+    @PostMapping("/modify")
+    public String modify(
+            @ModelAttribute Board board,
+            @RequestHeader(name = "Accept") String accept,
+            HttpSession session
+    ){
+        boardService.updateBoard(board);
+        return "board";
+    }
+
+    @GetMapping("/rewriteform")
+    public String rewriteform(
+            @RequestParam(name = "id") long id,
+            Model model
+    ){
+        Board board = boardService.getBoard(id);
+        model.addAttribute("board", board);
+        return "rewriteform";
+    }
+
+    @PostMapping("/rewrite")
+    public String rewrite(
+            @ModelAttribute Board board,
+            @RequestHeader(name = "Accept") String accept,
+            HttpSession session
+    ){
+
+        return "board";
+    }
 }

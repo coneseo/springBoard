@@ -13,6 +13,8 @@ public class BoardDaoSqls {
     public static final String UPDATE_LAST_INSERT_ID =
             "update board set group_no = :groupNo where id = :id";
     public static final String UPDATE =
+            "UPDATE board SET title = :title, content = :content where id= :id";
+    public static final String UPDATE_READCOUNT =
             "update board set read_count = read_count + 1 where id = :id";
     public static final String DELETE =
             "delete from board where id = :id";
