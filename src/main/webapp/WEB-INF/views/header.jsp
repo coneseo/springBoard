@@ -13,10 +13,10 @@
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/index">TestPage</a>
+            <a class="navbar-brand" href="/main">TestPage</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="/index">Home</a></li>
+            <li class="active"><a href="/main">Home</a></li>
             <li><a href="/board">board</a></li>
 
 

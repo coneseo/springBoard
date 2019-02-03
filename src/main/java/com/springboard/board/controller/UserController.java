@@ -34,16 +34,19 @@ public class UserController {
 //                       HttpSession session){
     public String join(@ModelAttribute User user,
                        @RequestHeader(name = "Accept") String accept,
-                       HttpSession session) {
+                       HttpSession session,
+                       Model model) {
 
         PasswordEncoder passwordEncoder =
                 PasswordEncoderFactories.createDelegatingPasswordEncoder();
 
         String encodePasswd = passwordEncoder.encode(user.getPasswd());
         user.setPasswd(encodePasswd);
-        userService.addUser(user);
+        User newuser = userService.addUser(user);
+        newuser.getNickname();
 
-        return "redirect:/welcome";
+        model.addAttribute("user", newuser);
+        return "welcome";
     }
     @GetMapping("/welcome")
     public String welcome(){

@@ -14,7 +14,7 @@
 
 <div class="container">
 
-    <h1>${sessionScope.user.nickname}!! Thank you for join us!</h1>
+    <h1>${user.nickname}!! Thank you for join us!</h1>
     <a href="/loginform"><input type="button" value="login"></a>
 </div>
 </body>

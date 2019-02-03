@@ -69,7 +69,7 @@ public class BoardController {
             HttpSession session
     ){
         boardService.updateBoard(board);
-        return "board";
+        return "redirect:/board";
     }
 
     @GetMapping("/rewriteform")
