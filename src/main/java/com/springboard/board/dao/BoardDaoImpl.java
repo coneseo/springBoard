@@ -104,17 +104,24 @@ public class BoardDaoImpl implements BoardDao {
 
     @Override
     public void updateLastInsertId(Long id) {
-        Map<String, Object> paramMap = new HashMap<>();
-        paramMap.put("id", id);
-        jdbc.update(UPDATE_LAST_INSERT_ID,paramMap);
+        try {
+            Map<String, Object> paramMap = new HashMap<>();
+            paramMap.put("group_no", id);
+            paramMap.put("id", id);
+            jdbc.update(UPDATE_LAST_INSERT_ID, paramMap);
+        }catch(EmptyResultDataAccessException ex){
+        }
     }
 
     @Override
     public void updateGroupSeqGt(int groupNo, int groupSeq) {
+        try {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("group_no", groupNo);
         paramMap.put("group_seq", groupSeq);
         jdbc.update(UPDATE_GROUP_SEQ_GT,paramMap);
+        }catch(EmptyResultDataAccessException ex){
+        }
     }
 
     @Override

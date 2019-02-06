@@ -41,8 +41,8 @@ public class BoardServiceImpl implements BoardService {
     @Transactional
     public void addBoard(Board board) {
         Long id = boardDao.addBoard(board);
-        Long lastInsertId = boardDao.getLastInsertId();
-        boardDao.updateLastInsertId(lastInsertId);
+        //Long lastInsertId = boardDao.getLastInsertId();
+        boardDao.updateLastInsertId(id);
         board.setId(id);
     }
 

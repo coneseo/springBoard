@@ -101,6 +101,6 @@ public class BoardController {
                          Model model){
         boardService.deleteBoard(id);
 
-        return "board";
+        return "redirect:/board";
     }
 }
