@@ -11,7 +11,7 @@ public class BoardDaoSqls {
     public static final String SELECT_LAST_INSERT_ID =
             "select LAST_INSERT_ID()";
     public static final String UPDATE_LAST_INSERT_ID =
-            "update board set group_no = :groupNo where id = :id";
+            "update board set group_no = :group_no where id = :id";
     public static final String UPDATE =
             "UPDATE board SET title = :title, content = :content where id= :id";
     public static final String UPDATE_READCOUNT =
@@ -19,5 +19,5 @@ public class BoardDaoSqls {
     public static final String DELETE =
             "delete from board where id = :id";
     public static final String UPDATE_GROUP_SEQ_GT =
-            "update board set group_seq = group_seq + 1 where group_no = :groupNo and group_seq > :groupSeq";
+            "update board set group_seq = group_seq + 1 where group_no = :group_no and group_seq > :group_seq";
 }

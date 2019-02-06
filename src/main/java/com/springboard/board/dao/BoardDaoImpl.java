@@ -118,11 +118,24 @@ public class BoardDaoImpl implements BoardDao {
 
     @Override
     public Long addReBoard(Board board) {
+
+//        paramMap.put("title",board.getTitle());
+//        paramMap.put("user_id",board.getUser_id());
+//        paramMap.put("content", board.getContent());
+//        paramMap.put("nickname", board.getNickname());
+//        paramMap.put("regdate", board.getRegdate());
+//        paramMap.put("read_count", board.getRead_count());
+//        paramMap.put("group_no", board.getGroup_no());
+//        paramMap.put("group_seq", board.getGroup_seq());
+//        paramMap.put("group_depth", board.getGroup_depth());
+
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("title",board.getTitle());
         paramMap.put("user_id", board.getUser_id());
         paramMap.put("nickname",board.getNickname());
         paramMap.put("content",board.getContent());
+        paramMap.put("regdate", board.getRegdate());
+        paramMap.put("read_count", board.getRead_count());
         paramMap.put("group_no",board.getGroup_no());
         paramMap.put("group_seq",board.getGroup_seq() +1);
         paramMap.put("group_depth",board.getGroup_depth() +1);

@@ -92,6 +92,15 @@ public class BoardController {
         board.setUser_id(user.getId());
         board.setNickname(user.getNickname());
         boardService.addReBoard(board);
+        return "redirect:/board";
+    }
+
+    @GetMapping("/delete")
+    public String delete(
+            @RequestParam(name = "id") long id,
+                         Model model){
+        boardService.deleteBoard(id);
+
         return "board";
     }
 }
