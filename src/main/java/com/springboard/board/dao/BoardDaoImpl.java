@@ -82,7 +82,6 @@ public class BoardDaoImpl implements BoardDao {
         paramMap.put("content", board.getContent());
         paramMap.put("id", board.getId());
         jdbc.update(UPDATE,paramMap);
-
     }
 
     @Override

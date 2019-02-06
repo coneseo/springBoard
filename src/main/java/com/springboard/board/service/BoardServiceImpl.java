@@ -32,8 +32,9 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
+    @Transactional
     public void deleteBoard(Long id) {
-
+        boardDao.deleteBoard(id);
     }
 
     @Override
@@ -52,7 +53,13 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
+    @Transactional
     public void addReBoard(Board board) {
+        Board oBoard = boardDao.getBoard(board.getId());
+        board.setGroup_seq(oBoard.getGroup_seq());
+        board.setGroup_depth(oBoard.getGroup_depth());
+        board.setGroup_no(oBoard.getGroup_no());
+        boardDao.updateGroupSeqGt(oBoard.getGroup_no(), oBoard.getGroup_seq());
         boardDao.addReBoard(board);
     }
 }
