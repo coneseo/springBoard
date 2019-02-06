@@ -7,4 +7,5 @@ import java.util.List;
 public interface PageService {
     public int getCount();
     public List<Board> search(String sort, String value);
+    public int getlastNum(int count);
 }

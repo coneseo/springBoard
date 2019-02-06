@@ -3,6 +3,7 @@ package com.springboard.board.controller;
 import com.springboard.board.dto.Board;
 import com.springboard.board.dto.User;
 import com.springboard.board.service.BoardService;
+import com.springboard.board.service.PageService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,8 +14,12 @@ import java.util.List;
 @Controller
 public class BoardController {
     BoardService boardService;
+    PageService pageService;
 
-    public BoardController(BoardService boardService){this.boardService = boardService;}
+    public BoardController(BoardService boardService, PageService pageService){
+        this.boardService = boardService;
+        this.pageService = pageService;
+    }
 
     @GetMapping("/writeform")
     public String writeform(){
@@ -39,7 +44,10 @@ public class BoardController {
             @RequestParam(name = "page", required = false, defaultValue = "1") int page,
             Model model){
         List<Board> boards = boardService.getBoards(page);
+        int count = pageService.getCount();
+        int lastNum = pageService.getlastNum(count);
         model.addAttribute("boards", boards);
+        model.addAttribute("lastNum", lastNum);
         return "board"; // view name
     }
 
