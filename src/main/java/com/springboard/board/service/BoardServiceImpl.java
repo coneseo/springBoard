@@ -40,6 +40,8 @@ public class BoardServiceImpl implements BoardService {
     @Transactional
     public void addBoard(Board board) {
         Long id = boardDao.addBoard(board);
+        Long lastInsertId = boardDao.getLastInsertId();
+        boardDao.updateLastInsertId(lastInsertId);
         board.setId(id);
     }
 
@@ -51,6 +53,6 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public void addReBoard(Board board) {
-
+        boardDao.addReBoard(board);
     }
 }

@@ -71,7 +71,8 @@ public class BoardDaoImpl implements BoardDao {
 
     @Override
     public void deleteBoard(Long id) {
-
+        Map<String, Object> paramMap = new HashMap<>();
+        jdbc.update(DELETE, paramMap);
     }
 
     @Override
@@ -96,21 +97,40 @@ public class BoardDaoImpl implements BoardDao {
 
     @Override
     public Long getLastInsertId() {
-        return null;
+        Map emptyMap = Collections.emptyMap();
+       long id =  jdbc.queryForObject(SELECT_LAST_INSERT_ID, emptyMap, Integer.class);
+        return id;
     }
 
     @Override
     public void updateLastInsertId(Long id) {
-
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("id", id);
+        jdbc.update(UPDATE_LAST_INSERT_ID,paramMap);
     }
 
     @Override
     public void updateGroupSeqGt(int groupNo, int groupSeq) {
-
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("group_no", groupNo);
+        paramMap.put("group_seq", groupSeq);
+        jdbc.update(UPDATE_GROUP_SEQ_GT,paramMap);
     }
 
     @Override
-    public void addReBoard(Board board) {
+    public Long addReBoard(Board board) {
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("title",board.getTitle());
+        paramMap.put("user_id", board.getUser_id());
+        paramMap.put("nickname",board.getNickname());
+        paramMap.put("content",board.getContent());
+        paramMap.put("group_no",board.getGroup_no());
+        paramMap.put("group_seq",board.getGroup_seq() +1);
+        paramMap.put("group_depth",board.getGroup_depth() +1);
 
+        Number number = simpleJdbcInsert.executeAndReturnKey(paramMap);
+        return number.longValue();
     }
+
+
 }

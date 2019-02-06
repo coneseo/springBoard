@@ -14,6 +14,6 @@ public interface BoardDao {
      Long getLastInsertId();
      void updateLastInsertId(Long id);
      void updateGroupSeqGt(int groupNo, int groupSeq);
-     void addReBoard(Board board);
+     Long addReBoard(Board board);
 
 }

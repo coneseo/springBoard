@@ -88,7 +88,10 @@ public class BoardController {
             @RequestHeader(name = "Accept") String accept,
             HttpSession session
     ){
-
+        User user = (User)session.getAttribute("user");
+        board.setUser_id(user.getId());
+        board.setNickname(user.getNickname());
+        boardService.addReBoard(board);
         return "board";
     }
 }
